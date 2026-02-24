@@ -1,0 +1,44 @@
+<div 
+  id="tarjeta7"
+  class="max-w-md mx-auto p-6 bg-white text-black rounded-2xl shadow-xl border border-gray-200 transition-colors duration-300"
+>
+  <h3 class="text-xl font-bold mb-6 text-center">
+    Ejercicio 7 - Cambiador de Tema
+  </h3>
+
+  <div class="text-center">
+    <button
+      id="btn7"
+      class="bg-gray-800 text-white px-6 py-3 rounded-xl font-semibold hover:opacity-90 transition duration-300"
+    >
+      Modo Oscuro
+    </button>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const tarjeta = document.getElementById("tarjeta7") as HTMLDivElement | null;
+    const btn = document.getElementById("btn7") as HTMLButtonElement | null;
+
+    if (!tarjeta || !btn) return;
+
+    let modoOscuro = false;
+
+    btn.addEventListener("click", () => {
+      modoOscuro = !modoOscuro;
+
+      if (modoOscuro) {
+        // Activar modo oscuro
+        tarjeta.classList.remove("bg-white", "text-black");
+        tarjeta.classList.add("bg-black", "text-white");
+        btn.textContent = "Modo Claro";
+      } else {
+        // Volver a modo claro
+        tarjeta.classList.remove("bg-black", "text-white");
+        tarjeta.classList.add("bg-white", "text-black");
+        btn.textContent = "Modo Oscuro";
+      }
+    });
+  });
+</script>

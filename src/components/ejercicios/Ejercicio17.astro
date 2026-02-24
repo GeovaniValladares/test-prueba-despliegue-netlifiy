@@ -1,0 +1,55 @@
+<div class="max-w-md mx-auto p-6 bg-gradient-to-br from-white to-gray-100 rounded-2xl shadow-xl border border-gray-200">
+  <h3 class="text-xl font-bold mb-6 text-gray-800 text-center">
+    Ejercicio 17 - Formulario con Validación
+  </h3>
+
+  <form id="form17" class="space-y-4">
+    <input
+      type="text"
+      id="nombre17"
+      placeholder="Nombre"
+      class="border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none p-3 w-full rounded-xl transition duration-300"
+    />
+
+    <input
+      type="email"
+      id="email17"
+      placeholder="Email"
+      class="border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none p-3 w-full rounded-xl transition duration-300"
+    />
+
+    <button
+      type="submit"
+      class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl transition duration-300 font-semibold"
+    >
+      Enviar
+    </button>
+  </form>
+
+  <div class="mt-5 p-3 rounded-xl border min-h-[50px] flex items-center justify-center">
+    <p id="mensaje17" class="font-semibold"></p>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("form17") as HTMLFormElement | null;
+    const nombre = document.getElementById("nombre17") as HTMLInputElement | null;
+    const email = document.getElementById("email17") as HTMLInputElement | null;
+    const mensaje = document.getElementById("mensaje17") as HTMLParagraphElement | null;
+
+    if (!form || !nombre || !email || !mensaje) return;
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      if (nombre.value.trim() !== "" && email.value.trim() !== "") {
+        mensaje.textContent = "Formulario enviado con éxito ✅";
+        mensaje.className = "font-semibold text-green-600";
+      } else {
+        mensaje.textContent = "Error: Todos los campos son obligatorios ❌";
+        mensaje.className = "font-semibold text-red-600";
+      }
+    });
+  });
+</script>

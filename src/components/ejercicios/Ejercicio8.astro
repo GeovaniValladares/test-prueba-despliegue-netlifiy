@@ -1,0 +1,43 @@
+<div class="max-w-md mx-auto p-6 bg-gradient-to-br from-white to-gray-100 rounded-2xl shadow-xl border border-gray-200">
+  <h3 class="text-xl font-bold mb-4 text-gray-800">
+    Ejercicio 8 - Mensaje Condicional
+  </h3>
+
+  <div class="flex gap-3 mb-5">
+    <button 
+      id="btnA"
+      class="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-xl transition duration-300"
+    >
+      Mostrar mensaje A
+    </button>
+
+    <button 
+      id="btnB"
+      class="flex-1 bg-green-600 hover:bg-green-700 text-white py-2 rounded-xl transition duration-300"
+    >
+      Mostrar mensaje B
+    </button>
+  </div>
+
+  <div class="p-4 bg-gray-50 rounded-xl border border-gray-200 min-h-[60px] flex items-center justify-center">
+    <p id="mensaje" class="text-lg font-semibold text-gray-700"></p>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const btnA = document.getElementById("btnA") as HTMLButtonElement | null;
+    const btnB = document.getElementById("btnB") as HTMLButtonElement | null;
+    const mensaje = document.getElementById("mensaje") as HTMLParagraphElement | null;
+
+    if (!btnA || !btnB || !mensaje) return;
+
+    btnA.addEventListener("click", () => {
+      mensaje.textContent = "Este es el mensaje A";
+    });
+
+    btnB.addEventListener("click", () => {
+      mensaje.textContent = "Este es el mensaje B";
+    });
+  });
+</script>

@@ -1,0 +1,61 @@
+<div class="max-w-md mx-auto p-6 bg-gradient-to-br from-white to-gray-100 rounded-2xl shadow-xl border border-gray-200">
+  <h3 class="text-xl font-bold mb-6 text-center text-gray-800">
+    Ejercicio 5 - Gestor de Tareas
+  </h3>
+
+  <div class="flex gap-2 mb-4">
+    <input
+      type="text"
+      id="input5"
+      placeholder="Nueva tarea..."
+      class="flex-1 border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none p-3 rounded-xl transition duration-300"
+    />
+
+    <button
+      id="btn5"
+      class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-3 rounded-xl font-semibold transition duration-300"
+    >
+      Agregar
+    </button>
+  </div>
+
+  <ul id="lista5" class="space-y-2"></ul>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const input = document.getElementById("input5") as HTMLInputElement | null;
+    const btn = document.getElementById("btn5") as HTMLButtonElement | null;
+    const lista = document.getElementById("lista5") as HTMLUListElement | null;
+
+    if (!input || !btn || !lista) return;
+
+    btn.addEventListener("click", () => {
+      const texto = input.value.trim();
+      if (texto === "") return;
+
+      // Crear elemento li
+      const li = document.createElement("li");
+      li.className =
+        "flex justify-between items-center bg-white p-3 rounded-xl shadow border";
+
+      const span = document.createElement("span");
+      span.textContent = texto;
+
+      const btnEliminar = document.createElement("button");
+      btnEliminar.textContent = "Eliminar";
+      btnEliminar.className =
+        "bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-lg text-sm";
+
+      btnEliminar.addEventListener("click", () => {
+        li.remove();
+      });
+
+      li.appendChild(span);
+      li.appendChild(btnEliminar);
+      lista.appendChild(li);
+
+      input.value = "";
+    });
+  });
+</script>

@@ -1,0 +1,33 @@
+<div class="max-w-md mx-auto p-6 bg-gradient-to-br from-white to-gray-100 rounded-2xl shadow-xl border border-gray-200">
+  <h3 class="text-xl font-bold mb-6 text-center text-gray-800">
+    Ejercicio 4 - Alerta de Texto
+  </h3>
+
+  <input
+    type="text"
+    id="campo4"
+    placeholder="Escribe algo..."
+    class="border border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none p-3 w-full rounded-xl transition duration-300 mb-4"
+  />
+
+  <button
+    id="btn4"
+    class="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-xl font-semibold transition duration-300 active:scale-95"
+  >
+    Mostrar Alerta
+  </button>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const campo = document.getElementById("campo4") as HTMLInputElement | null;
+    const btn = document.getElementById("btn4") as HTMLButtonElement | null;
+
+    if (!campo || !btn) return;
+
+    btn.addEventListener("click", () => {
+      const texto = campo.value;
+      alert(texto);
+    });
+  });
+</script>

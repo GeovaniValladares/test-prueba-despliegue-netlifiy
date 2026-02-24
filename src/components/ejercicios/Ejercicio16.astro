@@ -1,0 +1,27 @@
+<div class="max-w-md mx-auto p-6 bg-gradient-to-br from-white to-gray-100 rounded-2xl shadow-xl border border-gray-200 text-center">
+  <h3 class="text-xl font-bold mb-6 text-gray-800">
+    Ejercicio 16 - Texto Interactivo
+  </h3>
+
+  <p 
+    id="texto16"
+    class="text-lg font-medium text-black transition-colors duration-300 cursor-pointer"
+  >
+    Pasa el mouse sobre este texto
+  </p>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const texto = document.getElementById("texto16") as HTMLParagraphElement | null;
+    if (!texto) return;
+
+    texto.addEventListener("mouseenter", () => {
+      texto.style.color = "red";
+    });
+
+    texto.addEventListener("mouseleave", () => {
+      texto.style.color = "black";
+    });
+  });
+</script>

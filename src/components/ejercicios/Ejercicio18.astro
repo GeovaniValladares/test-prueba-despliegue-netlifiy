@@ -1,0 +1,29 @@
+<div class="max-w-md mx-auto p-6 bg-gradient-to-br from-white to-gray-100 rounded-2xl shadow-xl border border-gray-200 text-center">
+  <h3 class="text-xl font-bold mb-6 text-gray-800">
+    Ejercicio 18 - Detector de Doble Clic
+  </h3>
+
+  <button
+    id="btn18"
+    class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-xl font-semibold transition duration-300 active:scale-95"
+  >
+    Haz doble clic aquí
+  </button>
+
+  <div class="mt-5 p-3 bg-purple-50 rounded-xl border border-purple-200 min-h-[50px] flex items-center justify-center">
+    <p id="mensaje18" class="font-semibold text-purple-700"></p>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("btn18") as HTMLButtonElement | null;
+    const mensaje = document.getElementById("mensaje18") as HTMLParagraphElement | null;
+
+    if (!btn || !mensaje) return;
+
+    btn.addEventListener("dblclick", () => {
+      mensaje.textContent = "¡Doble clic detectado!";
+    });
+  });
+</script>

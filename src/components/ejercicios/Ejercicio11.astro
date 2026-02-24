@@ -1,0 +1,58 @@
+<div class="max-w-md mx-auto p-6 bg-gradient-to-br from-white to-gray-100 rounded-2xl shadow-xl border border-gray-200">
+  <h3 class="text-xl font-bold mb-4 text-gray-800">
+    Ejercicio 11 - Buscador en Tiempo Real
+  </h3>
+
+  <input
+    type="text"
+    id="buscador"
+    placeholder="Buscar fruta..."
+    class="border border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none p-3 w-full rounded-xl transition duration-300 mb-4"
+  />
+
+  <ul id="listaFrutas" class="space-y-2"></ul>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const frutas = [
+      "Manzana",
+      "Banana",
+      "Naranja",
+      "Uva",
+      "Sandía",
+      "Melón",
+      "Fresa",
+      "Kiwi"
+    ];
+
+    const buscador = document.getElementById("buscador") as HTMLInputElement | null;
+    const lista = document.getElementById("listaFrutas") as HTMLUListElement | null;
+
+    if (!buscador || !lista) return;
+
+    function mostrarFrutas(filtradas: string[]) {
+      lista!.innerHTML = "";
+
+      filtradas.forEach(fruta => {
+        const li = document.createElement("li");
+        li.textContent = fruta;
+        li.className = "p-2 bg-purple-50 rounded-lg border border-purple-200";
+        lista!.appendChild(li);
+      });
+    }
+
+    // Mostrar todas al inicio
+    mostrarFrutas(frutas);
+
+    buscador.addEventListener("input", () => {
+      const texto = buscador.value.toLowerCase();
+
+      const filtradas = frutas.filter(fruta =>
+        fruta.toLowerCase().includes(texto)
+      );
+
+      mostrarFrutas(filtradas);
+    });
+  });
+</script>

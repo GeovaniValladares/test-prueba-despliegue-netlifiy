@@ -1,0 +1,41 @@
+<div class="max-w-md mx-auto p-6 bg-gradient-to-br from-white to-gray-100 rounded-2xl shadow-xl border border-gray-200">
+  <h3 class="text-xl font-bold mb-4 text-gray-800">
+    Ejercicio 9 - Nombre Completo Automático
+  </h3>
+
+  <div class="space-y-3">
+    <input 
+      type="text" 
+      id="nombre"
+      placeholder="Nombre"
+      class="border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none p-3 w-full rounded-xl transition duration-300"
+    />
+
+    <input 
+      type="text" 
+      id="apellido"
+      placeholder="Apellido"
+      class="border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none p-3 w-full rounded-xl transition duration-300"
+    />
+  </div>
+
+  <div class="mt-5 p-4 bg-blue-50 rounded-xl border border-blue-200">
+    <p class="text-sm text-gray-600 mb-1">Nombre completo:</p>
+    <p id="resultado" class="text-lg font-semibold text-blue-700"></p>
+  </div>
+</div>
+
+<script>
+  const nombre = document.getElementById("nombre") as HTMLInputElement | null;
+  const apellido = document.getElementById("apellido") as HTMLInputElement | null;
+  const resultado = document.getElementById("resultado") as HTMLParagraphElement | null;
+
+  if (nombre && apellido && resultado) {
+    function actualizar() {
+      resultado!.textContent = nombre!.value + " " + apellido!.value;
+    }
+
+    nombre.addEventListener("input", actualizar);
+    apellido.addEventListener("input", actualizar);
+  }
+</script>

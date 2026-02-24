@@ -1,0 +1,37 @@
+<div class="max-w-md mx-auto p-6 bg-gradient-to-br from-white to-gray-100 rounded-2xl shadow-xl border border-gray-200">
+  <h3 class="text-xl font-bold mb-6 text-center text-gray-800">
+    Ejercicio 1 - Saludo Personalizado
+  </h3>
+
+  <input
+    type="text"
+    id="nombre1"
+    placeholder="Escribe tu nombre..."
+    class="border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none p-3 w-full rounded-xl transition duration-300"
+  />
+
+  <div class="mt-5 p-4 bg-blue-50 rounded-xl border border-blue-200 min-h-[60px] flex items-center justify-center">
+    <p id="saludo1" class="text-lg font-semibold text-blue-700">
+      Hola 👋
+    </p>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const input = document.getElementById("nombre1") as HTMLInputElement | null;
+    const saludo = document.getElementById("saludo1") as HTMLParagraphElement | null;
+
+    if (!input || !saludo) return;
+
+    input.addEventListener("input", () => {
+      const nombre = input.value.trim();
+
+      if (nombre === "") {
+        saludo.textContent = "Hola 👋";
+      } else {
+        saludo.textContent = "Hola, " + nombre + " 👋";
+      }
+    });
+  });
+</script>

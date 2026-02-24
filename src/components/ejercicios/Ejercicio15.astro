@@ -1,0 +1,31 @@
+<div class="max-w-md mx-auto p-6 bg-gradient-to-br from-white to-gray-100 rounded-2xl shadow-xl border border-gray-200 text-center">
+  <h3 class="text-xl font-bold mb-6 text-gray-800">
+    Ejercicio 15 - Enlace con Prevención
+  </h3>
+
+  <a 
+    href="https://google.com"
+    id="enlace15"
+    class="text-blue-600 underline hover:text-blue-800 transition duration-300"
+  >
+    Haz clic aquí (pero no enviará a ningún lado)
+  </a>
+
+  <div class="mt-5 p-3 bg-blue-50 rounded-xl border border-blue-200 min-h-[50px] flex items-center justify-center">
+    <p id="mensaje15" class="font-semibold text-blue-700"></p>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const enlace = document.getElementById("enlace15") as HTMLAnchorElement | null;
+    const mensaje = document.getElementById("mensaje15") as HTMLParagraphElement | null;
+
+    if (!enlace || !mensaje) return;
+
+    enlace.addEventListener("click", (event) => {
+      event.preventDefault();
+      mensaje.textContent = "Comportamiento predeterminado prevenido";
+    });
+  });
+</script>

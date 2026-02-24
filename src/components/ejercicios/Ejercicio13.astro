@@ -1,0 +1,31 @@
+<div class="max-w-md mx-auto p-6 bg-gradient-to-br from-white to-gray-100 rounded-2xl shadow-xl border border-gray-200">
+  <h3 class="text-xl font-bold mb-4 text-gray-800">
+    Ejercicio 13 - Tecla Presionada
+  </h3>
+
+  <input
+    type="text"
+    id="input13"
+    placeholder="Escribe algo..."
+    class="border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-ligh blue-200 outline-none p-3 w-full rounded-xl transition duration-300 mb-4"
+  />
+
+  <div class="p-3 bg-blue-50 rounded-xl border border-blue-200">
+    <p id="mensaje13" class="font-semibold text-blue-700">
+      Última tecla presionada:
+    </p>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const input = document.getElementById("input13") as HTMLInputElement | null;
+    const mensaje = document.getElementById("mensaje13") as HTMLParagraphElement | null;
+
+    if (!input || !mensaje) return;
+
+    input.addEventListener("keydown", (event) => {
+      mensaje.textContent = `Última tecla presionada: ${event.key}`;
+    });
+  });
+</script>

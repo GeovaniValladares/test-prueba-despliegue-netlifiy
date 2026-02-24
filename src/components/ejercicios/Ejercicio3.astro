@@ -1,0 +1,40 @@
+<div class="max-w-md mx-auto p-6 bg-gradient-to-br from-white to-gray-100 rounded-2xl shadow-xl border border-gray-200 text-center">
+  <h3 class="text-xl font-bold mb-6 text-gray-800">
+    Ejercicio 3 - Panel de Visibilidad
+  </h3>
+
+  <button
+    id="btn3"
+    class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl font-semibold transition duration-300 active:scale-95 mb-6"
+  >
+    Mostrar/Ocultar Mensaje
+  </button>
+
+  <div
+    id="mensaje3"
+    class="p-4 bg-green-50 border border-green-200 rounded-xl font-semibold text-green-700 hidden"
+  >
+    👀 Este es el mensaje secreto
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("btn3") as HTMLButtonElement | null;
+    const mensaje = document.getElementById("mensaje3") as HTMLDivElement | null;
+
+    if (!btn || !mensaje) return;
+
+    let visible = false;
+
+    btn.addEventListener("click", () => {
+      visible = !visible;
+
+      if (visible) {
+        mensaje.classList.remove("hidden");
+      } else {
+        mensaje.classList.add("hidden");
+      }
+    });
+  });
+</script>

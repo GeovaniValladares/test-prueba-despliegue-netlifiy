@@ -1,0 +1,30 @@
+---
+const { titulo } = Astro.props;
+---
+
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>{titulo}</title>
+    </head>
+
+    <body class="bg-gray-100 min-h-screen p-6">
+        <!-- Contenedor principal -->
+        <div class="max-w-3xl mx-auto space-y-6">
+            <!-- Encabezado -->
+            <header class="text-center mb-6">
+                <h1 class="text-3xl font-bold text-blue-700">
+                    {titulo}
+                </h1>
+            </header>
+
+            <!-- Card donde va el ejercicio -->
+            <main
+                class="bg-white p-6 rounded-xl shadow-md border border-gray-200"
+            >
+                <slot />
+            </main>
+        </div>
+    </body>
+</html>

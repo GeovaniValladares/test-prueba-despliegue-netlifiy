@@ -1,0 +1,35 @@
+<div class="max-w-md mx-auto p-6 bg-gradient-to-br from-white to-gray-100 rounded-2xl shadow-xl border border-gray-200">
+  <h3 class="text-xl font-bold mb-6 text-gray-800 text-center">
+    Ejercicio 19 - Campo Enfocado
+  </h3>
+
+  <input
+    type="text"
+    id="campo19"
+    placeholder="Haz clic aquí..."
+    class="border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none p-3 w-full rounded-xl transition duration-300"
+  />
+
+  <div class="mt-5 p-3 bg-green-50 rounded-xl border border-green-200 min-h-[50px] flex items-center justify-center">
+    <p id="mensaje19" class="font-semibold text-green-700">
+      Campo inactivo
+    </p>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const campo = document.getElementById("campo19") as HTMLInputElement | null;
+    const mensaje = document.getElementById("mensaje19") as HTMLParagraphElement | null;
+
+    if (!campo || !mensaje) return;
+
+    campo.addEventListener("focus", () => {
+      mensaje.textContent = "El campo está activo";
+    });
+
+    campo.addEventListener("blur", () => {
+      mensaje.textContent = "Campo inactivo";
+    });
+  });
+</script>

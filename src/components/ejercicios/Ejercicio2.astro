@@ -1,0 +1,35 @@
+<div class="max-w-md mx-auto p-6 bg-gradient-to-br from-white to-gray-100 rounded-2xl shadow-xl border border-gray-200 text-center">
+  <h3 class="text-xl font-bold mb-6 text-gray-800">
+    Ejercicio 2 - Contador de Clics
+  </h3>
+
+  <div class="mb-6">
+    <p class="text-gray-600 mb-2">Contador:</p>
+    <p id="contador2" class="text-4xl font-bold text-blue-600">
+      0
+    </p>
+  </div>
+
+  <button
+    id="btn2"
+    class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition duration-300 active:scale-95"
+  >
+    Incrementar
+  </button>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const contadorTexto = document.getElementById("contador2") as HTMLParagraphElement | null;
+    const btn = document.getElementById("btn2") as HTMLButtonElement | null;
+
+    if (!contadorTexto || !btn) return;
+
+    let contador = 0;
+
+    btn.addEventListener("click", () => {
+      contador++;
+      contadorTexto.textContent = contador.toString();
+    });
+  });
+</script>
